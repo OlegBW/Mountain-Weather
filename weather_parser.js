@@ -24,13 +24,28 @@ class JsonHandler{
     constructor(json){
         this.json = json;
     }
+
+    getLocation(){
+        let data = {
+            city:this.json.name,
+            country:this.json.sys.country,
+        }
+        return data;
+    }
+
     getData(){
         let obj = {
-            city:this.json.name,
             temp:getCelsius(this.json.main.temp),
+            tempFeels:getCelsius(this.json.main.feels_like),
+            tempMin:getCelsius(this.json.main.temp_min),
+            tempMax:getCelsius(this.json.main.temp_max),
+            pressure:this.json.main.pressure,
             weatherName:this.json.weather[0].main,
             weatherDesc:this.json.weather[0].description,
             weatherIcon:this.json.weather[0].icon,
+            clouds:this.json.clouds.all,
+            windSpeed:this.json.wind.speed,
+            windDeg:this.json.wind.deg,
         };
 
         return obj;
@@ -42,6 +57,7 @@ class WeatherData{
         this.lat = lat;
         this.lon = lon;
         this.key = 'a1ffdd83e9d1cf8bff5eb8fcd2cdf7af';
+        console.log('constructor');
     }
 
     async getData(){
@@ -51,9 +67,14 @@ class WeatherData{
         let data = handler.getData();
         return data;
     };
+
+    async getLocation(){
+        let parser = new WeatherParser(this.lat,this.lon,this.key);
+        let json = await parser.getJSON();
+        let handler = new JsonHandler(json);
+        let data = handler.getLocation();
+        return data;
+    }
 }
 
-// let res = new weatherData(47.66,36.27);
-// console.log(res.getLocation());
-// console.log(res.getData());
 module.exports = { WeatherData };

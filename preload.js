@@ -5,10 +5,11 @@ contextBridge.exposeInMainWorld('userData',{
 });
 
 contextBridge.exposeInMainWorld('blockData',{
-    sendData:(coords)=>ipcRenderer.sendSync('getRenderData',coords),
+    sendData:(coords)=>ipcRenderer.invoke('getRenderData',coords),
     getData:()=>ipcRenderer.invoke('getBlockData'),
 });
 
-// contextBridge.exposeInMainWorld('errorData',{
-//     sendData:(err)=>ipcRenderer.sendSync('getErrorData',err),
-// });
+contextBridge.exposeInMainWorld('logData',{
+    sendData:(log)=>ipcRenderer.invoke('getLogData',log),
+});
+

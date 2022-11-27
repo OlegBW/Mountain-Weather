@@ -12,5 +12,13 @@
     "electron": "^21.2.3",
     "node-fetch": "^2.6.7"
   },
-  "description": "Weather App"
+  "description": "Weather App",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlegBW/weather_app_electron.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OlegBW/weather_app_electron/issues"
+  },
+  "homepage": "https://github.com/OlegBW/weather_app_electron#readme"
 }

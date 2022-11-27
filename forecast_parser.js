@@ -1,4 +1,4 @@
-// const fetch = require('node-fetch2');
+const fetch = require('node-fetch2');
 
 function getCelsius(temp){
     return String(((+temp)-273).toFixed())+'°C';
@@ -85,6 +85,8 @@ class ForecastData{
     }
 }
 
-let res = new ForecastData(47.66,36.27)
-res.getData();
-res.getLocation();
+// let res = new ForecastData(47.66,36.27)
+// res.getData();
+// res.getLocation();
+
+module.exports = { ForecastData };

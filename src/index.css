@@ -16,6 +16,15 @@ img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 /*--------------------*/
 
+@font-face {
+    font-family: Commissioner;
+    src: url('./fonts/Commissioner/static/Commissioner-Medium.ttf');
+}
+
+body{
+    font-family: Commissioner;
+}
+
 .wrapper{
     height: 600px;
     width: 400px;
