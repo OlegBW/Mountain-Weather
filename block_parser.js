@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const {getCelsius} = require('./temp_converter.js');
+const {getCelsius} = require('./converters.js');
 
 class WeatherParser{
     constructor(lat, lon, key){

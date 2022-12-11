@@ -12,12 +12,20 @@
             <p class="navigation__label">
                 List 
             </p>
-            <button class="navigation__addbutton"><img class="navigation__addbutton__image" src="./src/img/add_icon.svg" alt="+"></button>
+            <div class="navigation__options">
+                <button class="navigation__clearbutton" id="btn_clear"><img class="navigation__clearbutton__image" src="./src/img/Clear.png" alt="clear"></button>
+                <a href="index.html" class="navigation__refreshbutton" id="btn_refresh"><img class="navigation__refreshbutton__image" src="./src/img/Refresh.png" alt="refresh"></a>
+                <button class="navigation__savebutton" id="btn_save"><img class="navigation__savebutton__image" src="./src/img/Save.png" alt="save"></button>
+                <a href="search.html" class="navigation__addbutton" id="btn_add"><img class="navigation__addbutton__image" src="./src/img/add_icon.svg" alt="+"></a>
+            </div>
         </nav>
-    
         <div class="weather_wrapper">
         </div>
     </div>
-    <script src="./render.js"></script>
+
+    <div class="screensaver">
+        <img src="./src/img/LoadingScreen.png" alt="LoadingScreen" class="screensaver_img">
+    </div>
+    <script src="./index_render.js"></script>
 </body>
 </html>

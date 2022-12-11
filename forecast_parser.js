@@ -1,6 +1,6 @@
-const fetch = require('node-fetch2');
+const fetch = require('node-fetch');
 
-const {getCelsius} = require('./temp_converter.js');
+const {getCelsius,getMMHG,getDate} = require('./converters.js');
 
 class ForecastParser{
     constructor(lat, lon, key){
@@ -40,14 +40,14 @@ class JsonHandler{
                     tempFeels:getCelsius(this.json.list[i].main.feels_like),
                     tempMin:getCelsius(this.json.list[i].main.temp_min),
                     tempMax:getCelsius(this.json.list[i].main.temp_max),
-                    pressure:this.json.list[i].main.pressure,
+                    pressure:getMMHG(this.json.list[i].main.pressure),
                     weatherName:this.json.list[i].weather[0].main,
                     weatherDesc:this.json.list[i].weather[0].description,
                     weatherIcon:this.json.list[i].weather[0].icon,
-                    clouds:this.json.list[i].clouds.all,
+                    clouds:this.json.list[i].clouds.all+'%',
                     windSpeed:this.json.list[i].wind.speed,
                     windDeg:this.json.list[i].wind.deg,
-                    date:this.json.list[i].dt_txt,
+                    date:getDate(this.json.list[i].dt_txt),
                 }
 
             data.push(obj);

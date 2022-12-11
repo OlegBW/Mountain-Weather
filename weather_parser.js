@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const {getCelsius} = require('./temp_converter.js');
+const {getCelsius,getMMHG} = require('./converters.js');
 
 class WeatherParser{
     constructor(lat, lon, key){
@@ -37,11 +37,11 @@ class JsonHandler{
             tempFeels:getCelsius(this.json.main.feels_like),
             tempMin:getCelsius(this.json.main.temp_min),
             tempMax:getCelsius(this.json.main.temp_max),
-            pressure:this.json.main.pressure,
+            pressure:getMMHG(this.json.main.pressure),
             weatherName:this.json.weather[0].main,
             weatherDesc:this.json.weather[0].description,
             weatherIcon:this.json.weather[0].icon,
-            clouds:this.json.clouds.all,
+            clouds:this.json.clouds.all+'%',
             windSpeed:this.json.wind.speed,
             windDeg:this.json.wind.deg,
         };
@@ -55,7 +55,7 @@ class WeatherData{
         this.lat = lat;
         this.lon = lon;
         this.key = 'a1ffdd83e9d1cf8bff5eb8fcd2cdf7af';
-        console.log('constructor');
+        // console.log('constructor');
     }
 
     async getData(){
@@ -74,5 +74,12 @@ class WeatherData{
         return data;
     }
 }
+
+// async function test(){
+// let wd = new WeatherData(41,29);
+// let data = await wd.getData();
+// console.log(data);
+// }
+// test();
 
 module.exports = { WeatherData };

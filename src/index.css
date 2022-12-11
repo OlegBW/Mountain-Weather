@@ -16,6 +16,10 @@ img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 /*--------------------*/
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 @font-face {
     font-family: Commissioner;
     src: url('./fonts/Commissioner/static/Commissioner-Medium.ttf');
@@ -26,10 +30,11 @@ body{
 }
 
 .wrapper{
-    height: 600px;
     width: 400px;
     display: flex;
     flex-direction: column;
+    min-height: 600px;
+    max-height: fit-content;
 }
 
 .navigation{
@@ -48,20 +53,60 @@ body{
 }
 
 .navigation__addbutton{
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     background-color: white;
     border-radius: 50%;
 }
 
 .navigation__addbutton__image{
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
+}
+
+.navigation__refreshbutton{
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0px 10px 0px 0px;
+}
+
+.navigation__refreshbutton__image{
+    height: 30px;
+    width: 30px;
+}
+
+.navigation__savebutton{
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0px 10px 0px 0px;
+}
+
+.navigation__savebutton__image{
+    height: 30px;
+    width: 30px;
+}
+
+.navigation__clearbutton{
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0px 10px 0px 0px;
+}
+
+.navigation__clearbutton__image{
+    height: 30px;
+    width: 30px;
 }
 
 .weather_wrapper{
-    height: 550px;
     background-color: aliceblue;
+    min-height: 550px;
+    max-height: fit-content;
     box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.3);
     padding: 15px 15px 15px 15px;
     display: flex;
@@ -99,4 +144,23 @@ body{
 .weather_wrapper__block__weather_info{
     display: flex;
     align-items: center;
+}
+
+.weather_wrapper__block__city_link{
+    color: black;
+    text-decoration: none;
+}
+
+.screensaver{
+    position: absolute;
+    z-index: 5;
+    left: 0px;
+    top: 50px;
+    height: 550px;
+    width: 400px;
+}
+
+.screensaver_img{
+    height: 550px;
+    width: 400px;
 }
